@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday from Sudais Khalid</title>
+    <style>
+        body {
+            font-family: 'Cursive', 'Comic Sans MS', 'Brush Script MT', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Changed to transparent */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            width: 90%;
+            max-width: 500px;
+        }
+        .container:hover {
+            background-color: rgba(185, 247, 141, 0.8); /* Changed to transparent */
+        }
+        .initial-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .initial-container button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #0073b1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .initial-container button:hover {
+            background-color: #2f3031;
+        }
+        .birthday-container {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .birthday-container .message {
+            flex: 1;
+            text-align: left;
+        }
+        .birthday-container .image {
+            flex: 1;
+            text-align: right;
+        }
+        .birthday-container h1 {
+            font-size: 2em;
+            color: #ff69b4;
+        }
+        .birthday-container p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .cake-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 80%;
+                max-width: 300px;
+            }
+            .birthday-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                height: 500px;
+                width: 80%;
+            }
+            .birthday-container .image {
+                margin-top: -30px;
+                height: 130px;
+                width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="background-video" onended="this.load(); this.play();">
+        <source src="./bday/bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container initial-container">
+        <h1>Welcome! <span class="emoji">🎉</span></h1>
+        <p>Click the button below to reveal a special message.</p>
+        <button onclick="showBirthdayMessage()">Click Me</button>
+    </div>
+    <div class="container birthday-container">
+        <div class="message">
+            <h1 style="align-items: center;">Happy Birthday</h1>
+            <p>Wishing you a day filled with love, joy, and happiness.
+            May your special day be as incredible as you are, surrounded by family and friends who cherish you.
+            Here's to celebrating you and all the wonderful moments that lie ahead.
+            Happy Birthday! Enjoy every moment of your day to the fullest!</p>
+            <h2 style="align-items: right;"><span>Sudais Khalid!</span></h2>
+        </div>
+        <div class="image">
+            <img src="./bday/cake.png" alt="Birthday Cake" class="cake-image">
+        </div>
+    </div>
+    <script>
+        function showBirthdayMessage() {
+            document.querySelector('.initial-container').style.display = 'none';
+            document.querySelector('.birthday-container').style.display = 'flex';  
+            throwConfetti();
+        }
+    </script>
+</body>
+</html>
